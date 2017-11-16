@@ -25,7 +25,14 @@ public class IdadeCachorroActivity extends AppCompatActivity {
         btConverter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int idadeHumano = Integer.parseInt(String.valueOf(idade.getText())) * 7;
+                String digitado = String.valueOf(idade.getText());
+
+                if(digitado.isEmpty()){
+                    txtResult.setText("Idade invalida");
+                    return;
+                }
+
+                int idadeHumano = Integer.parseInt(digitado) * 7;
                 txtResult.setText(idadeHumano + " Anos");
             }
         });
