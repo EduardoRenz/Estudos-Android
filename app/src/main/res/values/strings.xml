@@ -5,4 +5,6 @@
     <string name="numero_random">Numero Random</string>
     <string name="frase_do_dia_bt">Frase do Dia</string>
     <string name="nova_frase">Nova Frase</string>
+    <string name="botao_converter">Converter</string>
+    <string name="idade_cachorro">Idade de Cachorro</string>
 </resources>

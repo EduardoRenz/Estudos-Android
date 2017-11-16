@@ -17,7 +17,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".NumeroRandomActivity" />
-        <activity android:name=".FraseDoDiaActivity" android:label="Frase do Dia"></activity>
+        <activity
+            android:name=".FraseDoDiaActivity"
+            android:label="Frase do Dia" />
+        <activity
+            android:name=".IdadeCachorroActivity"
+            android:label="Idade do Cachorro para Pessoa">
+
+        </activity>
     </application>
 
 </manifest>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:background="@android:color/holo_orange_dark"
+    android:background="@android:color/holo_orange_dark"
     tools:context="br.com.a3passos.adivinha.FraseDoDiaActivity">
 
     <Button
@@ -25,13 +25,15 @@
         android:id="@+id/txtFrase"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="Gere uma nova frase"
-        android:textAlignment="textStart"
-        android:textColor="@android:color/background_dark"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
         android:textSize="@dimen/subtitulo"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btNovaFrase" />
