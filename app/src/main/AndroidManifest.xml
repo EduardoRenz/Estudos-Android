@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NumeroRandomActivity"></activity>
+        <activity android:name=".NumeroRandomActivity" />
+        <activity android:name=".FraseDoDiaActivity" android:label="Frase do Dia"></activity>
     </application>
 
 </manifest>

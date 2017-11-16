@@ -3,4 +3,6 @@
     <string name="boao_jogar">Jogar</string>
     <string name="numero">Nenhum Numero</string>
     <string name="numero_random">Numero Random</string>
+    <string name="frase_do_dia_bt">Frase do Dia</string>
+    <string name="nova_frase">Nova Frase</string>
 </resources>

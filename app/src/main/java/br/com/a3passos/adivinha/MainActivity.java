@@ -8,13 +8,15 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button numeroRandom;
+    private Button numeroRandom,fraseDoDia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         numeroRandom = (Button)findViewById(R.id.numeroRandom);
+        fraseDoDia = (Button)findViewById(R.id.fraseDoDia);
+
         //Vai para o Numero Random
         numeroRandom.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Vai para Frase do DIa
+        fraseDoDia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(),FraseDoDiaActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
 
