@@ -2,4 +2,5 @@
     <string name="app_name">Adivinha</string>
     <string name="boao_jogar">Jogar</string>
     <string name="numero">Nenhum Numero</string>
+    <string name="numero_random">Numero Random</string>
 </resources>

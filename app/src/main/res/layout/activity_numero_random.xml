@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.com.a3passos.adivinha.NumeroRandom">
+    tools:context="br.com.a3passos.adivinha.NumeroRandomActivity">
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btJogar"
+        android:id="@+id/numeroRandom"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -45,5 +45,5 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btJogar" />
+        app:layout_constraintTop_toBottomOf="@+id/numeroRandom" />
 </android.support.constraint.ConstraintLayout>
