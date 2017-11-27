@@ -22,9 +22,8 @@
             android:label="Frase do Dia" />
         <activity
             android:name=".IdadeCachorroActivity"
-            android:label="Idade do Cachorro para Pessoa">
-
-        </activity>
+            android:label="Idade do Cachorro para Pessoa"></activity>
+        <activity android:name=".InputsActivity"></activity>
     </application>
 
 </manifest>
