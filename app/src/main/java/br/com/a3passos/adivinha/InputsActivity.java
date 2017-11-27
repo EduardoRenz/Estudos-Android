@@ -6,10 +6,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 public class InputsActivity extends AppCompatActivity {
     private RadioGroup genero;
@@ -17,7 +20,8 @@ public class InputsActivity extends AppCompatActivity {
     private Button bt;
     private TextView result,lindo_descricao;
     private SeekBar lindisse;
-
+    private ToggleButton chave;
+    private EditText editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +34,8 @@ public class InputsActivity extends AppCompatActivity {
         result = (TextView) findViewById(R.id.result);
         lindo_descricao = (TextView) findViewById(R.id.lindo_descricao);
         lindisse = (SeekBar) findViewById(R.id.nivel_lindisse) ;
+        chave = (ToggleButton) findViewById(R.id.chave);
+        editor = (EditText) findViewById(R.id.escrita);
 
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +105,18 @@ public class InputsActivity extends AppCompatActivity {
             }
         });
 
-
+        chave.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    editor.setEnabled(true);
+                }
+                else{
+                    editor.setEnabled(false);
+                }
+                Log.d("checker", String.valueOf(b));
+            }
+        });
     }
 
 
