@@ -1,5 +1,6 @@
 package br.com.a3passos.adivinha;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class InputsActivity extends AppCompatActivity {
+    private static final String ARQUIVO_PREFERENCIA = "ArquivoPreferencia";
     private RadioGroup genero;
     private CheckBox cao,gato,coala;
     private Button bt;
@@ -36,15 +38,15 @@ public class InputsActivity extends AppCompatActivity {
         lindisse = (SeekBar) findViewById(R.id.nivel_lindisse) ;
         chave = (ToggleButton) findViewById(R.id.chave);
         editor = (EditText) findViewById(R.id.escrita);
-
+        getPreferencias();
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                result.setText("CAO:" + cao.isChecked() + "\n" + "GATO:" + gato.isChecked() + "\n Coala:"+ coala.isChecked() + "\n"
-                );
 
+
+
+                result.setText("CAO:" + cao.isChecked() + "\n" + "GATO:" + gato.isChecked() + "\n Coala:"+ coala.isChecked() + "\n");
                 int radioButtonID = genero.getCheckedRadioButtonId();
-
                 if(radioButtonID != -1){
                     View radioButton = genero.findViewById(radioButtonID);
                     int idx = genero.indexOfChild(radioButton);
@@ -52,6 +54,10 @@ public class InputsActivity extends AppCompatActivity {
                     String selectedtext = r.getText().toString();
                     result.setText(result.getText() + "\n" + selectedtext);
                 }
+
+
+                salvarPreferencias();
+
             }
         });
 
@@ -120,5 +126,54 @@ public class InputsActivity extends AppCompatActivity {
     }
 
 
+    private  void salvarPreferencias(){
+        SharedPreferences sharedPreferences = getSharedPreferences(ARQUIVO_PREFERENCIA,0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putBoolean("cao",cao.isChecked());
+        editor.putBoolean("gato",gato.isChecked());
+        editor.putBoolean("coala",coala.isChecked());
+
+
+        int radioButtonID = genero.getCheckedRadioButtonId();
+        if(radioButtonID != -1){
+            editor.putInt("genero",radioButtonID);
+        }
+
+        editor.putInt("lindisse",lindisse.getProgress());
+        editor.commit();
+        Log.d("prefs","salvas");
+
+    }
+    private void getPreferencias(){
+        Log.d("PREFs","Tentando achar preferencias");
+        SharedPreferences sharedPreferences = getSharedPreferences(ARQUIVO_PREFERENCIA,0);
+        if(sharedPreferences.contains("cao")){
+            Log.d("cao", String.valueOf(sharedPreferences.getBoolean("cao",true)));
+            cao.setChecked(sharedPreferences.getBoolean("cao",true));
+        }
+        if(sharedPreferences.contains("gato")){
+            gato.setChecked(sharedPreferences.getBoolean("gato",true));
+        }
+        if(sharedPreferences.contains("coala")){
+            coala.setChecked(sharedPreferences.getBoolean("coala",true));
+        }
+
+
+        if(sharedPreferences.contains("genero")){
+            View radioButton = genero.findViewById(sharedPreferences.getInt("genero",0));
+            int idx = genero.indexOfChild(radioButton);
+            RadioButton r = (RadioButton)  genero.getChildAt(idx);
+            Log.d("ID DE GENERO", String.valueOf(r.getId()));
+            r.setChecked(true);
+        }
+
+
+        if(sharedPreferences.contains("lindisse")){
+            lindisse.setProgress(sharedPreferences.getInt("lindisse",1));
+        }
+
+
+    }
 
 }
