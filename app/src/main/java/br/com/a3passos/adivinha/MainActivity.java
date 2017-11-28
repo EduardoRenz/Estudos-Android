@@ -3,12 +3,13 @@ package br.com.a3passos.adivinha;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button numeroRandom,fraseDoDia,idadeCachorro,inputs;
+    private Button numeroRandom,fraseDoDia,idadeCachorro,inputs,anotacoes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,45 +19,43 @@ public class MainActivity extends AppCompatActivity {
         fraseDoDia = (Button)findViewById(R.id.fraseDoDia);
         idadeCachorro = (Button)findViewById(R.id.idadeCachorro);
         inputs = (Button)findViewById(R.id.inputs);
+        anotacoes = (Button)findViewById(R.id.btAnotacoes);
 
-        //Vai para o Numero Random
-        numeroRandom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent iNumeroRandom = new Intent(view.getContext(),NumeroRandomActivity.class);
-                startActivity(iNumeroRandom);
-            }
-        });
 
-        //Vai para Frase do DIa
-        fraseDoDia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(view.getContext(),FraseDoDiaActivity.class);
-                startActivity(i);
-            }
-        });
 
-        //Vai para Idade de cachorro
-        idadeCachorro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(view.getContext(),IdadeCachorroActivity.class);
-                startActivity(i);
-            }
-        });
+        numeroRandom.setOnClickListener(this);
+        fraseDoDia.setOnClickListener(this);
+        idadeCachorro.setOnClickListener(this);
+        inputs.setOnClickListener(this);
+        anotacoes.setOnClickListener(this);
 
-        //Vai para inputs
 
-        inputs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(view.getContext(),InputsActivity.class);
-                startActivity(i);
-            }
-        });
 
     }
 
 
+    @Override
+    public void onClick(View view) {
+        Intent i = null;
+        switch (view.getId()){
+            case R.id.numeroRandom:
+                 i = new Intent(view.getContext(),NumeroRandomActivity.class);
+                break;
+            case R.id.fraseDoDia:
+                 i = new Intent(view.getContext(),FraseDoDiaActivity.class);
+                break;
+            case R.id.idadeCachorro:
+                i = new Intent(view.getContext(),IdadeCachorroActivity.class);
+                break;
+            case R.id.inputs:
+                i = new Intent(view.getContext(),InputsActivity.class);
+                break;
+            case R.id.btAnotacoes:
+                i = new Intent(view.getContext(),AnotacoesActivity.class);
+                break;
+        }
+        startActivity(i);
+
+        Log.d("Click", String.valueOf(view.getId()));
+    }
 }

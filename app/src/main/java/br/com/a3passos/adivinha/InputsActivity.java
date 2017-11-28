@@ -161,11 +161,13 @@ public class InputsActivity extends AppCompatActivity {
 
 
         if(sharedPreferences.contains("genero")){
-            View radioButton = genero.findViewById(sharedPreferences.getInt("genero",0));
+            View radioButton = genero.findViewById(sharedPreferences.getInt("genero",1));
             int idx = genero.indexOfChild(radioButton);
-            RadioButton r = (RadioButton)  genero.getChildAt(idx);
-            Log.d("ID DE GENERO", String.valueOf(r.getId()));
-            r.setChecked(true);
+
+                RadioButton r = (RadioButton)  genero.getChildAt(idx);
+                r.setChecked(true);
+
+
         }
 
 
