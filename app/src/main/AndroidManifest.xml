@@ -24,7 +24,8 @@
             android:name=".IdadeCachorroActivity"
             android:label="Idade do Cachorro para Pessoa" />
         <activity android:name=".InputsActivity" />
-        <activity android:name=".AnotacoesActivity"></activity>
+        <activity android:name=".AnotacoesActivity" />
+        <activity android:name=".banco.BancoActivity"></activity>
     </application>
 
 </manifest>

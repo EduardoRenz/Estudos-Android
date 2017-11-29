@@ -7,9 +7,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import br.com.a3passos.adivinha.banco.BancoActivity;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button numeroRandom,fraseDoDia,idadeCachorro,inputs,anotacoes;
+    private Button numeroRandom,fraseDoDia,idadeCachorro,inputs,anotacoes,banco;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,16 +22,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         idadeCachorro = (Button)findViewById(R.id.idadeCachorro);
         inputs = (Button)findViewById(R.id.inputs);
         anotacoes = (Button)findViewById(R.id.btAnotacoes);
+        banco = (Button) findViewById(R.id.bt_banco);
 
-
-
+        // ----------- Listeners ------------
         numeroRandom.setOnClickListener(this);
         fraseDoDia.setOnClickListener(this);
         idadeCachorro.setOnClickListener(this);
         inputs.setOnClickListener(this);
         anotacoes.setOnClickListener(this);
-
-
+        banco.setOnClickListener(this);
 
     }
 
@@ -52,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btAnotacoes:
                 i = new Intent(view.getContext(),AnotacoesActivity.class);
+                break;
+            case R.id.bt_banco:
+                i = new Intent(view.getContext(),BancoActivity.class);
                 break;
         }
         startActivity(i);
